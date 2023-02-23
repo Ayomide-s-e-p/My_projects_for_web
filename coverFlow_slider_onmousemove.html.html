@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gallery{
+    /*  */
+    align-items:center;
+}
+
+.gallery-container{
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 400px;
+}
+
+.gallary-item{
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    background-size: contain;
+}
+
+.gallary-item1{
+    left: 15%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    z-index: 1;
+}
+.gallary-item1-to-right{
+    left: 20%;
+}
+
+.gallary-item2, .gallary-item4{
+    height: 350px;
+    width: 350px;
+    z-index: 1;
+}
+
+.gallary-item2{
+    left: 30%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    z-index: 2;
+}
+
+.gallary-item3{
+    height: 400px;
+    width: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    z-index: 3;
+}
+.dim-cent{
+    height: 350px;
+    width: 350px;
+}
+
+
+
+
+.gallary-item4{
+    left: 70%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    z-index: 2;
+}
+.gallary-item5{
+    left: 85%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    z-index: 1;
+}
+
+.active-gallary-item{
+    height: 400px;
+    width: 400px;
+    z-index: 10;
+}
+
+/* gallary item one */
+.shift-r{
+    left: 20%
+}
+.one_2{
+    width: 350px;
+    height: 350px;
+    z-index: 9;
+    left: 40%
+}
+.one_3{
+    width: 325px;
+    height: 325px;
+    z-index: 8;
+    left: 55%
+}
+.one_4{
+    width: 300px;
+    height: 300px;
+    z-index: 7;
+    left: 70%
+}
+.one_5{
+    width: 275px;
+    height: 275px;
+    z-index: 6;
+    left: 80%
+}
+
+/* gallary item two */
+.two_1{
+    width: 350px;
+    height: 350px;
+    z-index: 9;
+    left: 15%
+}
+.two_3{
+    width: 350px;
+    height: 350px;
+    z-index: 9;
+    left: 45%
+}
+
+.two_4{
+    width: 325px;
+    height: 325px;
+    z-index: 8;
+    left: 60%
+}  
+
+.two_5{
+    width: 300px;
+    height: 300px;
+    z-index: 7;
+    left: 75%
+}  
+
+
+/* gallary item three  is the default style, so no style here*/
+
+
+/* gallary item four */
+.four_1{
+    width: 300px;
+    height: 300px;
+    z-index: 7;
+    left: 20%
+}
+.four_2{
+    width: 325px;
+    height: 325px;
+    z-index: 8;
+    left: 35%
+}
+.four_3{
+    width: 350px;
+    height: 350px;
+    z-index: 9;
+    left: 53%
+}
+.four_5{
+    width: 350px;
+    height: 350px;
+    z-index: 9;
+    left: 80%
+}
+
+/* gallary item five */
+.shift-l{
+    left: 80%
+}
+.five_1{
+    width: 275px;
+    height: 275px;
+    z-index: 6;
+    left: 20%
+}
+.five_2{
+    width: 300px;
+    height: 300px;
+    z-index: 7;
+    left: 35%
+}
+.five_3{
+    width: 325px;
+    height: 325px;
+    z-index: 8;
+    left: 50%
+}
+.five_4{
+    width: 350px;
+    height: 350px;
+    z-index: 9;
+    left: 65%
+}
+    </style>
+</head>
+<body>
+    
+    <div class="gallery">
+    <div class="gallery-container" id="gallerycontainer">
+        <img class="gallary-item gallary-item1" id="rd1" src="https://swiperjs.com/demos/images/nature-1.jpg" alt="">
+        <img class="gallary-item gallary-item2" id="rd2" src="https://swiperjs.com/demos/images/nature-3.jpg" alt="">
+        <img class="gallary-item gallary-item3" id="rd3" src="https://swiperjs.com/demos/images/nature-2.jpg" alt="">
+        <img class="gallary-item gallary-item4" id="rd4" src="https://swiperjs.com/demos/images/nature-4.jpg" alt="">
+        <img class="gallary-item gallary-item5" id="rd5" src="https://swiperjs.com/demos/images/nature-5.jpg" alt="">
+    </div>
+    </div>
+
+    <script>
+        let swiper = document.getElementById("gallerycontainer")
+// let el1 = document.getElementsByClassName("gallary-item1")
+// let el2 = document.getElementsByClassName("gallary-item2")
+// let el3 = document.getElementsByClassName("gallary-item3")
+// let el4 = document.getElementsByClassName("gallary-item4")
+// let el5 = document.getElementsByClassName("gallary-item5")
+
+var el1 = document.getElementById("rd1")
+var el2 = document.getElementById("rd2")
+var el3 = document.getElementById("rd3")
+var el4 = document.getElementById("rd4")
+var el5 = document.getElementById("rd5")
+
+
+swiper.addEventListener("mouseover", (e) => {
+
+    // gallary item one
+    if (e.target.classList.contains("gallary-item1"))
+     {
+
+        gallaryItemOne();
+    //     el1.classList.remove("reduce1-r")
+    //     el2.classList.remove("reduce2-r")
+    //     el3.classList.remove("reduce3-r")
+    //     el4.classList.remove("reduce4-r")
+    //     el5.classList.remove("shift-l")
+
+    //     el5.classList.remove("active-gallary-item");
+    //     el2.classList.remove("active-gallary-item");
+    //     el3.classList.remove("active-gallary-item");
+    //     el4.classList.remove("active-gallary-item");
+
+    //     el1.classList.add("shift-r")
+    //     el2.classList.add("reduce2")
+    //     el3.classList.add("reduce3")
+    //     el4.classList.add("reduce4")
+    //     el5.classList.add("reduce5")
+    //     el1.classList.add("active-gallary-item");
+        
+
+    }
+    // gallary item two
+    if (e.target.classList.contains("gallary-item2"))
+    {
+        gallaryItemTwo();
+        // el1.classList.remove("shift-r")
+        // el2.classList.remove("shift-l")
+        // el2.classList.remove("reduce2")
+        // el3.classList.remove("reduce3")
+        // el4.classList.remove("reduce4")
+        // el5.classList.remove("reduce5")
+        // el1.classList.remove("active-gallary-item");
+        // el3.classList.remove("active-gallary-item");
+        // el4.classList.remove("active-gallary-item");
+        // el5.classList.remove("active-gallary-item");
+
+
+        // el1.classList.add("reduce1-2fl")
+        // el3.classList.add("reduce3-2fl")
+        // el4.classList.add("reduce4-2fl")
+        // el5.classList.add("reduce5-2fl")
+        // el2.classList.add("active-gallary-item");
+    }
+    // gallary item three
+    if (e.target.classList.contains("gallary-item3"))
+    {
+        gallaryItemThree();
+        // el1.classList.remove("shift-r")
+        // el2.classList.remove("shift-l")
+        // el2.classList.remove("reduce2")
+        // el3.classList.remove("reduce3")
+        // el4.classList.remove("reduce4")
+        // el5.classList.remove("reduce5")
+        // el1.classList.remove("active-gallary-item");
+        // el3.classList.remove("active-gallary-item");
+        // el4.classList.remove("active-gallary-item");
+        // el5.classList.remove("active-gallary-item");
+
+
+        // el1.classList.add("reduce1-2fl")
+        // el3.classList.add("reduce3-2fl")
+        // el4.classList.add("reduce4-2fl")
+        // el5.classList.add("reduce5-2fl")
+        // el2.classList.add("active-gallary-item");
+    }
+    // gallary item four
+    if (e.target.classList.contains("gallary-item4"))
+    {
+        gallaryItemFour();
+        
+    }
+    // gallary item five
+    if (e.target.classList.contains("gallary-item5"))
+    {
+        gallaryItemFive();
+    }
+    
+    
+    // reduce from 2 on left
+    
+})
+
+
+
+function gallaryItemOne() {
+    // remove these
+    el1.classList.remove("two_1")
+    el1.classList.remove("three_1")
+    el1.classList.remove("four_1")
+    el1.classList.remove("five_1")
+
+    el2.classList.remove("three_2")
+    el2.classList.remove("four_2")
+    el2.classList.remove("five_2")
+
+    el3.classList.remove("two_3")
+    el3.classList.remove("four_3")
+    el3.classList.remove("five_3")
+
+    el4.classList.remove("two_4")
+    el4.classList.remove("three_4")
+    el4.classList.remove("five_4")
+
+    el5.classList.remove("two_5")
+    el5.classList.remove("three_5")
+    el5.classList.remove("four_5")
+
+    el2.classList.remove("active-gallary-item");
+    el3.classList.remove("active-gallary-item");
+    el4.classList.remove("active-gallary-item");
+    el5.classList.remove("active-gallary-item");
+
+    // add these
+    el1.classList.add("shift-r");
+    el1.classList.add("active-gallary-item");
+
+    el2.classList.add("one_2")
+    el3.classList.add("one_3")
+    el4.classList.add("one_4")
+    el5.classList.add("one_5")
+}
+
+function gallaryItemTwo() {
+    // remove these
+    el1.classList.remove("three_1")
+    el1.classList.remove("four_1")
+    el1.classList.remove("five_1")
+
+    el2.classList.remove("one_2")
+    el2.classList.remove("three_2")
+    el2.classList.remove("four_2")
+    el2.classList.remove("five_2")
+    
+    el3.classList.remove("one_3")
+    el3.classList.remove("four_3")
+    el3.classList.remove("five_3")
+
+    el4.classList.remove("one_4")
+    el4.classList.remove("three_4")
+    el4.classList.remove("five_4")
+
+    el5.classList.remove("one_5")
+    el5.classList.remove("three_5")
+    el5.classList.remove("four_5")
+    
+    el1.classList.remove("shift-r");
+    el5.classList.remove("shift-l");
+
+    el1.classList.remove("active-gallary-item");
+    el3.classList.remove("active-gallary-item");
+    el4.classList.remove("active-gallary-item");
+    el5.classList.remove("active-gallary-item");
+
+
+    // add these
+    el2.classList.add("active-gallary-item");
+
+    el1.classList.add("two_1")
+    el3.classList.add("two_3")
+    el4.classList.add("two_4")
+    el5.classList.add("two_5")
+}
+
+function gallaryItemThree() {
+    // remove these
+    el1.classList.remove("two_1")
+    el1.classList.remove("four_1")
+    el1.classList.remove("five_1")
+
+    el2.classList.remove("one_2")
+    el2.classList.remove("four_2")
+    el2.classList.remove("five_2")
+
+    el3.classList.remove("one_3")
+    el3.classList.remove("two_3")
+    el3.classList.remove("four_3")
+    el3.classList.remove("five_3")
+
+    el4.classList.remove("one_4")
+    el4.classList.remove("two_4")
+    el4.classList.remove("five_4")
+
+    el5.classList.remove("one_5")
+    el5.classList.remove("two_5")
+    el5.classList.remove("four_5")
+    
+    el1.classList.remove("shift-r");
+    el5.classList.remove("shift-l");
+
+    el1.classList.remove("active-gallary-item");
+    el2.classList.remove("active-gallary-item");
+    el4.classList.remove("active-gallary-item");
+    el5.classList.remove("active-gallary-item");
+
+
+    // add these
+    el3.classList.add("active-gallary-item");
+
+}
+
+function gallaryItemFour() {
+    // remove these
+    el1.classList.remove("two_1")
+    el1.classList.remove("three_1")
+    el1.classList.remove("five_1")
+
+    el2.classList.remove("one_2")
+    el2.classList.remove("three_2")
+    el2.classList.remove("five_2")
+
+    el3.classList.remove("one_3")
+    el3.classList.remove("two_3")
+    el3.classList.remove("five_3")
+
+    el4.classList.remove("one_4")
+    el4.classList.remove("two_4")
+    el4.classList.remove("three_4")
+    el4.classList.remove("five_4")
+
+    el5.classList.remove("one_5")
+    el5.classList.remove("two_5")
+    el5.classList.remove("three_5")
+    
+    el1.classList.remove("shift-r");
+    el5.classList.remove("shift-l");
+
+    el1.classList.remove("active-gallary-item");
+    el2.classList.remove("active-gallary-item");
+    el3.classList.remove("active-gallary-item");
+    el5.classList.remove("active-gallary-item");
+
+
+    // add these
+    el4.classList.add("active-gallary-item");
+
+    el1.classList.add("four_1");
+    el2.classList.add("four_2");
+    el3.classList.add("four_3");
+    el5.classList.add("four_5");
+
+}
+
+function gallaryItemFive() {
+    // remove these
+    el1.classList.remove("two_1")
+    el1.classList.remove("three_1")
+    el1.classList.remove("four_1")
+
+    el2.classList.remove("one_2")
+    el2.classList.remove("three_2")
+    el2.classList.remove("four_2")
+
+    el3.classList.remove("one_3")
+    el3.classList.remove("two_3")
+    el3.classList.remove("four_3")
+
+    el4.classList.remove("one_4")
+    el4.classList.remove("two_4")
+    el4.classList.remove("three_4")
+
+    el5.classList.remove("one_5")
+    el5.classList.remove("two_5")
+    el5.classList.remove("three_5")
+    el5.classList.remove("four_5")
+    
+    el1.classList.remove("shift-r");
+
+    el1.classList.remove("active-gallary-item");
+    el2.classList.remove("active-gallary-item");
+    el3.classList.remove("active-gallary-item");
+    el4.classList.remove("active-gallary-item");
+
+
+    // add these
+    el5.classList.add("shift-l");
+
+    el5.classList.add("active-gallary-item");
+
+    el1.classList.add("five_1");
+    el2.classList.add("five_2");
+    el3.classList.add("five_3");
+    el4.classList.add("five_4");
+
+}
+    </script>
+</body>
+</html>
